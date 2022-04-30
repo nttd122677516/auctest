@@ -7,6 +7,7 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -35,6 +36,22 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
+        });
+        
+        Route::get('/main', function () {
+            return view('layouts/paginaweb');
+        });
+        Route::get('/v1', function () {
+            return view('v1');
+        });
+        Route::get('/v2', function () {
+            return view('v2');
+        });
+        Route::get('/v3', function () {
+            return view('v3');
+        });
+        Route::get('/v4', function () {
+            return view('v4');
         });
     }
 
